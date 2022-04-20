@@ -22,7 +22,7 @@ namespace Elasticsearch.Net
 	public enum PostType
 	{
 		ByteArray,
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 		ReadOnlyMemory,
 #endif
 		LiteralString,
@@ -61,7 +61,7 @@ namespace Elasticsearch.Net
 
 		public static PostData Bytes(byte[] bytes) => new PostData<object>(bytes);
 
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 		public static PostData ReadOnlyMemory(ReadOnlyMemory<byte> bytes) => new PostData<object>(bytes);
 #endif
 
@@ -90,7 +90,7 @@ namespace Elasticsearch.Net
 		}
 
 		protected async
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 			ValueTask
 #else
 			Task
@@ -111,7 +111,7 @@ namespace Elasticsearch.Net
 		private readonly IEnumerable<object> _enumerableOfObject;
 		private readonly IEnumerable<string> _enumerableOfStrings;
 		private readonly string _literalString;
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 		private readonly ReadOnlyMemory<byte> _memoryOfBytes;
 #endif
 
@@ -121,7 +121,7 @@ namespace Elasticsearch.Net
 			Type = PostType.ByteArray;
 		}
 
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 		protected internal PostData(ReadOnlyMemory<byte> item)
 		{
 			_memoryOfBytes = item;
@@ -164,7 +164,7 @@ namespace Elasticsearch.Net
 						buffer = settings.MemoryStreamFactory.Create(WrittenBytes);
 					break;
 
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 				case PostType.ReadOnlyMemory:
 					if (_memoryOfBytes.IsEmpty) return;
 
@@ -257,7 +257,7 @@ namespace Elasticsearch.Net
 						buffer = settings.MemoryStreamFactory.Create(WrittenBytes);
 					break;
 
-#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+#if NETSTANDARD2_1 || NET5_0
 				case PostType.ReadOnlyMemory:
 					if (_memoryOfBytes.IsEmpty) return;
 
