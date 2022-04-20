@@ -192,6 +192,7 @@ namespace Tests.CodeStandards
 			var exceptions = new List<Type>
 			{
 				elasticsearchNetAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute"),
+				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.NullableAttribute"),
 				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute"),
 				elasticsearchNetAssembly.GetType("System.AssemblyVersionInformation"),
 				elasticsearchNetAssembly.GetType("System.FormattableString"),
