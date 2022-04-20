@@ -32,18 +32,8 @@ namespace Tests.ScratchPad
 
 		private static async Task Main(string[] args)
 		{
-			Console.Write($"Warmup...");
-			var response = Client.Bulk(b => b.IndexMany(Projects));
-			Console.WriteLine("\rWarmed up kicking off in 2 seconds!");
-
-			await Task.Delay(TimeSpan.FromSeconds(2));
-			Console.WriteLine($"Kicking off");
-
-			for (var i = 0; i < 10_000; i++)
-			{
-				var r = Client.Bulk(b => b.IndexMany(Projects));
-				Console.Write($"\r{i}: {r.IsValid} {r.Items.Count}");
-			}
+			var client = new ElasticClient();
+			_ = await client.PingAsync();
 		}
 
 		private static object BulkItemResponse(Project project) => new
