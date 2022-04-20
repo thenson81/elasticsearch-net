@@ -166,6 +166,8 @@ namespace Tests.CodeStandards
 				nestAssembly.GetType("System.ComponentModel.Browsable", throwOnError: false),
 				nestAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute", throwOnError: false),
 				nestAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute", throwOnError: false),
+				nestAssembly.GetType("System.Runtime.CompilerServices.NullableAttribute", throwOnError: false),
+				nestAssembly.GetType("System.Runtime.CompilerServices.NullableContextAttribute", throwOnError: false),
 			};
 
 			var types = nestAssembly.GetTypes();
@@ -193,6 +195,7 @@ namespace Tests.CodeStandards
 			{
 				elasticsearchNetAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute"),
 				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.NullableAttribute"),
+				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.NullableContextAttribute"),
 				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute"),
 				elasticsearchNetAssembly.GetType("System.AssemblyVersionInformation"),
 				elasticsearchNetAssembly.GetType("System.FormattableString"),

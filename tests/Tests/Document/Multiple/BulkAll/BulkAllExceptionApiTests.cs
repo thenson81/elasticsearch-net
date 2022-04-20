@@ -59,7 +59,7 @@ namespace Tests.Document.Multiple.BulkAll
 
 
 	[SkipOnCi] //TODO fails on canary windows only, need to come back to this one
-	[SkipAttribute("Test fails after upgrading to .NET Core 3.0 on .NET 4.6.1 - only sees 1 request. Needs investigation")]
+	[Skip("Test fails after upgrading to .NET Core 3.0 on .NET 4.6.1 - only sees 1 request. Needs investigation")]
 	public class BulkAllBadRetriesApiTests : BulkAllApiTestsBase
 	{
 		public BulkAllBadRetriesApiTests(IntrusiveOperationCluster cluster) : base(cluster) { }
