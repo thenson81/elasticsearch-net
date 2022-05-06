@@ -26,6 +26,10 @@ var settings = new ElasticsearchClientSettings(new InMemoryConnection())
 
 var client = new ElasticsearchClient(settings);
 
+var createIndexResponse = await client.Indices.CreateAsync("aa", i => i
+	.Mappings(_ => { }));
+
+
 var filterResponse = await client.SearchAsync<Person>(s => s
 	.Query(q => q
 		.Bool(b => b
